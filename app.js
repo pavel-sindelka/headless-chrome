@@ -14,7 +14,7 @@ var parseUrl = function(url) {
 };
 
 app.get('/', function(req, res) {
-    var urlToScreenshot = parseUrl(req.query.url);
+    var urlToScreenshot = "https://tipsport.cz";
 
     if (validUrl.isWebUri(urlToScreenshot)) {
         console.log('Screenshotting: ' + urlToScreenshot);
