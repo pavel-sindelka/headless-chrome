@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
             await page.type('#userNameId', 'sindelka95'), 
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
-            await page.waitForNavigation();
+            await page.waitForNavigation({ waitUntil: 'load' });
             
             await page.goto(urlToScreenshot + '/live');
             //await page.waitForNavigation();
