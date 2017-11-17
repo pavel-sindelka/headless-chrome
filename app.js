@@ -31,7 +31,7 @@ app.get('/', function(req, res) {
             await page.click('input[type="submit"]');
             await page.waitForNavigation({ waitUntil: 'load' });
             
-            await page.goto(urlToScreenshot + '/live');
+            await page.goto('https://www.tipsport.cz/live');
             //await page.waitForNavigation();
             
             await page.screenshot({ fullPage: true }).then(function(buffer) {
