@@ -32,7 +32,6 @@ app.get('/', function(req, res) {
             await page.waitForNavigation({ waitUntil: 'load' });
             
             await page.goto('https://www.tipsport.cz/live');
-            //await page.waitForNavigation();
             
             await page.screenshot({ fullPage: true }).then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
