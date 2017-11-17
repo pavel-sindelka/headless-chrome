@@ -32,7 +32,7 @@ app.get('/', function(req, res) {
             await page.waitForNavigation();
             
             await page.goto(urlToScreenshot + '/live');
-            await page.waitForNavigation();
+            //await page.waitForNavigation();
             
             await page.screenshot().then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
