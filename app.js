@@ -30,6 +30,8 @@ app.get('/', function(req, res) {
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
             
+            await page.waitForNavigation();
+            
             await page.screenshot().then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
                 res.setHeader('Content-Type', 'image/png');
