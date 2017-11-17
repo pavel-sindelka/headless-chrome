@@ -32,9 +32,9 @@ app.get('/', function(req, res) {
             await page.waitForNavigation({ waitUntil: 'load' });
             
             await page.goto(urlToScreenshot + '/live');
-            await page.waitForNavigation();
+            //await page.waitForNavigation();
             
-            await page.screenshot().then(function(buffer) {
+            await page.screenshot({ fullPage: true }).then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
                 res.setHeader('Content-Type', 'image/png');
                 res.send(buffer)
