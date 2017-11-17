@@ -25,7 +25,14 @@ app.get('/', function(req, res) {
 
             const page = await browser.newPage();
             await page.goto(urlToScreenshot);
-            await page.type('#userNameId', 'sindelka95');
+            
+            await Promise.all([
+                page.type('#userNameId', 'sindelka95');
+                page.type('#passwordId', 'sindelka');
+           ]);
+            
+            await page.click('input[type="submit"]');
+            
             await page.screenshot().then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
                 res.setHeader('Content-Type', 'image/png');
