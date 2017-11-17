@@ -27,8 +27,8 @@ app.get('/', function(req, res) {
             await page.goto(urlToScreenshot);
             
             await Promise.all([
-                page.type('#userNameId', 'sindelka95');
-                page.type('#passwordId', 'sindelka');
+                page.type('#userNameId', 'sindelka95'), 
+                page.type('#passwordId', 'sindelka')
            ]);
             
             await page.click('input[type="submit"]');
