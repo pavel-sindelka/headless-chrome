@@ -29,7 +29,9 @@ app.get('/', function(req, res) {
             await page.type('#userNameId', 'sindelka95'), 
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
+            await page.waitForNavigation();
             
+            await page.goto(urlToScreenshot + '/live');
             await page.waitForNavigation();
             
             await page.screenshot().then(function(buffer) {
