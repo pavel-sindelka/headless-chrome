@@ -19,9 +19,7 @@ app.get('/', function(req, res) {
     if (validUrl.isWebUri(urlToScreenshot)) {
         console.log('Screenshotting: ' + urlToScreenshot);
         (async() => {
-            const browser = await puppeteer.launch({
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
-            });
+            const browser = await puppeteer.launch();
 
             const page = await browser.newPage();
             await page.goto(urlToScreenshot);
@@ -29,7 +27,7 @@ app.get('/', function(req, res) {
             await page.type('#userNameId', 'sindelka95'), 
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
-            await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+            await page.waitForNavigation({ waitUntil: 'load' });
             
             await page.goto(urlToScreenshot + '/live');
             //await page.waitForNavigation();
