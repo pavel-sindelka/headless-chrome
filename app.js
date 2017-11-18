@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
             
             await page.goto('https://www.tipsport.cz/live', { waitUntil: 'domcontentloaded' });
             
-            await page.type('#userNameId', 'sindelka95'), 
+            await page.type('#userNameId', 'sindelka95');
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
             await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
