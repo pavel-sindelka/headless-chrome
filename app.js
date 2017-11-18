@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-
+        await page.waitForSelector("#ss16");
         await page.evaluate("var matchs = 'aaaa' + document.getElementById('ss16'); document.getElementsByTagName('body')[0].innerHTML = matchs;");
         //const matchs = await page.$("#ss16");
         //console.log("------------------");
