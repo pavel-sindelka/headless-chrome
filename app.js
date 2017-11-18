@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
         const matches = await page.$$("#ss16 .match");
         let index;
         for (var i = 0; i < matches.length; i++) {
-            const teams = matches[i].$("nameMatch").innerHTML.split(' - '); 
+            const teams = matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
             const tip = 'sms';
             const reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*';
