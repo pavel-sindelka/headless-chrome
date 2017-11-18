@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
         await page.click('input[type="submit"]');
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
 
-        await page.evaluate("var matchs = document.getElementById('ss16'); document.body = matchs;");
+        await page.evaluate("var matchs = document.getElementById('ss16'); document.body[0].innerHTML = matchs;");
         //const matchs = await page.$("#ss16");
         //console.log("------------------");
         //console.log(matchs);
