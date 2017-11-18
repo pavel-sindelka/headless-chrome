@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
         await page.waitForNavigation({ waitUntil: 'load' });
 
         //await page.evaluate("var matchs = document.getElementById('ss16').getElementsByClassName('match'); var index; for (var i = 0; i < matchs.length; i++) { var teams = matchs[i].getElementsByClassName('nameMatch')[0].innerHTML.split(' - '); var text = teams[0]; var tip = 'a'; var reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*'; var match = text.match(new RegExp(reg, 'i')); console.log(match); if (match !== null) { index = i; break; } } console.log(index); matchs[index].click();")
-        const matchs = await page.$("#ss16);
+        const matchs = await page.$("#ss16");
         console.log(matchs);
         //await page.waitFor(5000);
         //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
