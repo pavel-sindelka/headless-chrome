@@ -24,14 +24,15 @@ app.get('/', function(req, res) {
             });
 
             const page = await browser.newPage();
-            await page.goto(urlToScreenshot);
+            
+            await page.goto('https://www.tipsport.cz/live', { waitUntil: 'domcontentloaded' });
             
             await page.type('#userNameId', 'sindelka95'), 
             await page.type('#passwordId', 'sindelka');
             await page.click('input[type="submit"]');
             await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
             
-            await page.goto('https://www.tipsport.cz/live');
+
             
             await page.screenshot({ fullPage: true }).then(function(buffer) {
                 res.setHeader('Content-Disposition', 'attachment;filename="' + urlToScreenshot + '.png"');
