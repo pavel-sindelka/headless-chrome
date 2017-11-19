@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
         
         const matches = await page.$$("#ss16 .match");
         let index;
-        for (var i = 0; i < matches.length; i++) {
+        /*for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
             const tip = 'sms';
@@ -33,8 +33,8 @@ app.get('/', function(req, res) {
                 index = i;
                 break;
             }
-        }
-        //matches[index].click();*/
+        }*/
+        matches[0].click();
         //await page.evaluate("var matchs = document.getElementById('ss16').getElementsByClassName('match'); var index; for (var i = 0; i < matchs.length; i++) { var teams = matchs[i].getElementsByClassName('nameMatch')[0].innerHTML.split(' - '); var text = teams[0]; var tip = 'sms'; var reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*'; var match = text.match(new RegExp(reg, 'i')); console.log(match); if (match !== null) { index = i; break; } } console.log(index); matchs[index].click();");
         
         //await page.waitForNavigation({ waitUntil: 'domcontentloaded' }); 
