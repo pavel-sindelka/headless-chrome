@@ -26,7 +26,7 @@ app.get('/', function(req, res) {
         /*for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
-            const tip = 'sms';
+            const tip = 'a';
             const reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*';
             const match = text.match(new RegExp(reg, 'i'));
             if (match !== null) {
@@ -34,10 +34,10 @@ app.get('/', function(req, res) {
                 break;
             }
         }*/
-        matches[0].click();
+        await matches[0].click();
         //await page.evaluate("var matchs = document.getElementById('ss16').getElementsByClassName('match'); var index; for (var i = 0; i < matchs.length; i++) { var teams = matchs[i].getElementsByClassName('nameMatch')[0].innerHTML.split(' - '); var text = teams[0]; var tip = 'sms'; var reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*'; var match = text.match(new RegExp(reg, 'i')); console.log(match); if (match !== null) { index = i; break; } } console.log(index); matchs[index].click();");
         
-        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' }); 
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded' }); 
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
