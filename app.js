@@ -29,8 +29,8 @@ app.get('/', function(req, res) {
             const reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*';
             const match = text.match(new RegExp(reg, 'i'));
             if (match !== null) {
-                await matches[i].click();
-                await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+                //await matches[i].click();
+                //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
                 break;
             }
         }
