@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
         
         await page.waitForSelector("#ss16 .match");
         
-        const matches = await page.$("#ss16 .match");
+        const matches = await page.$$("#ss16 .match");
         for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
