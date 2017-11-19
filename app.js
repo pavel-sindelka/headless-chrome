@@ -14,7 +14,7 @@ app.get('/', function(req, res) {
         const page = await browser.newPage();
 
         await page.goto('https://www.tipsport.cz/live', { waitUntil: 'domcontentloaded' });
-
+/*
         await page.type('#userNameId', 'sindelka95');
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
@@ -22,7 +22,7 @@ app.get('/', function(req, res) {
         //await page.waitForSelector("#ss16");
         
         //const matches = await page.$$("#ss16 .match");
-        /*for (var i = 0; i < matches.length; i++) {
+        for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
             const tip = 'a';
@@ -33,10 +33,10 @@ app.get('/', function(req, res) {
                 //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
                 break;
             }
-        }*/
+        }
 
         //await page.evaluate("var matchs = document.getElementById('ss16').getElementsByClassName('match'); var index; for (var i = 0; i < matchs.length; i++) { var teams = matchs[i].getElementsByClassName('nameMatch')[0].innerHTML.split(' - '); var text = teams[0]; var tip = 'a'; var reg = '.*' + tip.replace(/\\s/g,'').split('').join('+.*') + '+.*'; var match = text.match(new RegExp(reg, 'i')); console.log(match); if (match !== null) { index = i; break; } } console.log(index); matchs[index].click();");
-        
+        */
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
             res.setHeader('Content-Type', 'image/png');
