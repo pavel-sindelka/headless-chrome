@@ -14,11 +14,11 @@ app.get('/', function(req, res) {
         const page = await browser.newPage();
 
         await page.goto('https://www.tipsport.cz/live', { waitUntil: 'domcontentloaded' });
-/*
+
         await page.type('#userNameId', 'sindelka95');
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
-        
+/*        
         //await page.waitForSelector("#ss16");
         
         //const matches = await page.$$("#ss16 .match");
