@@ -20,9 +20,9 @@ app.get('/', function(req, res) {
         await page.click('input[type="submit"]');
         
         await page.waitForSelector("#ss16");
-/*        
-        //const matches = await page.$$("#ss16 .match");
-        for (var i = 0; i < matches.length; i++) {
+        
+        const matches = await page.$$("#ss16 .match");
+        /*for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
             const text = teams[0];
             const tip = 'a';
