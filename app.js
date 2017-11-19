@@ -18,9 +18,9 @@ app.get('/', function(req, res) {
         await page.type('#userNameId', 'sindelka95');
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
-/*        
-        //await page.waitForSelector("#ss16");
         
+        await page.waitForSelector("#ss16");
+/*        
         //const matches = await page.$$("#ss16 .match");
         for (var i = 0; i < matches.length; i++) {
             const teams = await matches[i].$(".nameMatch").innerHTML.split(' - '); 
