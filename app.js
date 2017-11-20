@@ -47,7 +47,9 @@ app.get('/', function(req, res) {
             document.getElementById('submitButton').click();
         });
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForSelector("#submitButton");
+        
+        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
