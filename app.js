@@ -40,6 +40,7 @@ app.get('/', function(req, res) {
         });
         
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForSelector(".tdEventTable");
         
         await page.evaluate(() => {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
@@ -52,7 +53,7 @@ app.get('/', function(req, res) {
             document.getElementById('submitButton').click();
         });
         
-        await page.waitFor(5000);
+        await page.waitFor(3000);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
