@@ -19,8 +19,8 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         
-        await page.waitForNavigation();
-        //await page.waitForSelector("#ss16");
+        //await page.waitForNavigation();
+        await page.waitForSelector("#ss16");
         
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
             matchs[index].click();
         });
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         
         await page.waitForSelector("#submitButton");
         
@@ -49,7 +49,7 @@ app.get('/', function(req, res) {
             document.getElementById('submitButton').click();
         });
         
-        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitFor(1000);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
