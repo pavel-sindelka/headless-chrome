@@ -21,7 +21,9 @@ app.get('/', function(req, res) {
         
         //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         await page.waitForSelector("#ss16");
-console.log(await page.$("#ss16").$$("match"));
+        const sport = await page.$("#ss16");
+        const m = await sport.$$("match");
+console.log(m);
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
             var index;
