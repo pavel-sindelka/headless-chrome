@@ -3,8 +3,8 @@ const puppeteer = require('puppeteer');
 
 const app = express();
 const port = process.env.PORT || 8080;
-(async () => { 
-    const browser = await puppeteer.launch({
+const browser = (async () => { 
+    return await puppeteer.launch({
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     })
 })();
