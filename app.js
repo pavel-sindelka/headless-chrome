@@ -3,15 +3,14 @@ const puppeteer = require('puppeteer');
 
 const app = express();
 const port = process.env.PORT || 8080;
-const browser = (async () => { 
-    return await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-    })
-})();
 const url = "https://www.tipsport.cz/live";
 
 app.get('/', function(req, res) {
-    (async () => {
+    (async() => {
+        const browser = await puppeteer.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
+
         const page = await browser.newPage();
 
         await page.goto('https://www.tipsport.cz/live');
