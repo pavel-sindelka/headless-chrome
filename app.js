@@ -23,7 +23,8 @@ app.get('/', function(req, res) {
         await page.waitForSelector("#ss16");
         const sport = await page.$("#ss16");
         const m = await sport.$$(".match");
-console.log(await m[0].$(".nameMatch").innerHTML);
+        const l = await m[0].$(".nameMatch").innerHTML;
+console.log(l);
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
             var index;
