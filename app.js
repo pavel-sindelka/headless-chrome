@@ -19,9 +19,9 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-        //await page.waitForSelector("#ss16");
-
+        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForSelector("#ss16");
+console.log("2222222");
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
             var index;
