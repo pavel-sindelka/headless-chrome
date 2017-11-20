@@ -19,12 +19,9 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         
-        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         await page.waitForSelector("#ss16");
-        const sport = await page.$("#ss16");
-        const m = await sport.$$(".match");
-        const l = await m[0].$(".nameMatch").innerHTML;
-console.log(l);
+        
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
             var index;
