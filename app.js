@@ -19,7 +19,7 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         
-        //await page.waitForNavigation();
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         await page.waitForSelector("#ss16");
         
         await page.evaluate(() => {
@@ -39,8 +39,7 @@ app.get('/', function(req, res) {
             matchs[index].click();
         });
         
-        //await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-        
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         await page.waitForSelector("#submitButton");
         
         await page.evaluate(() => {
