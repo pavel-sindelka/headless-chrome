@@ -44,8 +44,10 @@ app.get('/', function(req, res) {
         await page.evaluate(() => {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
             document.getElementById('amountPaid').value = 808;
-            setTimeout(() => { document.getElementById('submitButton').click(); }, 100);
+            document.getElementById('submitButton').click();
         });
+        
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
