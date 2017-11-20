@@ -40,10 +40,14 @@ app.get('/', function(req, res) {
         });
         
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-        await page.waitForSelector("#submitButton");
         
         await page.evaluate(() => {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
+        });
+        
+        await page.waitForSelector("#submitButton");
+        
+        await page.evaluate(() => {
             document.getElementById('amountPaid').value = 808;
             document.getElementById('submitButton').click();
         });
