@@ -55,15 +55,13 @@ app.get('/', function(req, res) {
         
         //await page.waitFor(5000);
         
-        page.on('response', msg => {
-            await page.screenshot({ fullPage: true }).then(function(buffer) {
+        await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
             res.setHeader('Content-Type', 'image/png');
             res.send(buffer);
         });
 
         await browser.close();
-        });
     })();
 });
 
