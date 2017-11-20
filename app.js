@@ -44,12 +44,12 @@ app.get('/', function(req, res) {
         
         await page.evaluate(() => {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
+            document.getElementById('amountPaid').value = 808;
         });
         
         await page.waitForSelector("#submitButton");
         
         await page.evaluate(() => {
-            document.getElementById('amountPaid').value = 808;
             document.getElementById('submitButton').click();
         });
         
