@@ -3,9 +3,9 @@ const puppeteer = require('puppeteer');
 
 const app = express();
 const port = process.env.PORT || 8080;
-const browser = (async () => await puppeteer.launch({
+const browser = puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox']
-}))();
+});
 const url = "https://www.tipsport.cz/live";
 
 app.get('/', function(req, res) {
