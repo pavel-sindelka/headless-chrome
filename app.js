@@ -19,8 +19,8 @@ app.get('/', function(req, res) {
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
-        await page.waitForSelector("#ss16");
+        await page.waitForNavigation({ waitUntil: 'load' });
+        //await page.waitForSelector("#ss16");
         
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
             matchs[index].click();
         });
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForNavigation({ waitUntil: 'load' });
         
         await page.evaluate(() => {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
