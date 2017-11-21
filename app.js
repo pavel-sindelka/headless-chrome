@@ -46,13 +46,13 @@ app.get('/', function(req, res) {
             document.getElementsByClassName('tdEventTable opportunity')[0].click();
             document.getElementById('amountPaid').value = 808;
         });
-        /*
-        await page.waitForSelector("#submitButton", { visible: true });
         
+        await page.waitForSelector("#submitButton");
+        /*
         await page.evaluate(() => {
             document.getElementById('submitButton').click();
         });*/
-        await page.click('input[type="submit"]');
+        await page.click('#submitButton');
         //await page.waitFor(5000);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
