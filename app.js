@@ -39,7 +39,7 @@ app.get('/', function(req, res) {
             matchs[index].click();
         });
         
-        await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
+        await page.waitForNavigation();
         await page.waitForSelector(".tdEventTable");
         
         await page.evaluate(() => {
