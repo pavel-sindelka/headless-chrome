@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
             document.getElementById('amountPaid').value = 808;
         });
         
-        await page.waitForSelector("#submitButton");
+        await page.waitForSelector("#submitButton", { visible: true });
         
         await page.evaluate(() => {
             document.getElementById('submitButton').click();
