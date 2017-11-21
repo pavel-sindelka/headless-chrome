@@ -48,11 +48,11 @@ app.get('/', function(req, res) {
         });
         
         await page.waitForSelector("#submitButton");
-        /*
+        
         await page.evaluate(() => {
             document.getElementById('submitButton').click();
-        });*/
-        await page.click('#submitButton');
+        });
+        
         //await page.waitFor(5000);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
