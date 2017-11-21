@@ -53,8 +53,6 @@ app.get('/', function(req, res) {
             document.getElementById('submitButton').click();
         });
         
-        await page.click("#submitButton");
-        
         await page.waitFor(5000);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
