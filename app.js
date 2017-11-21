@@ -48,6 +48,7 @@ app.get('/', function(req, res) {
         });
         
         await page.waitForSelector("#submitButton");
+        await page.waitFor(500);
         
         await page.evaluate(() => {
             document.getElementById('submitButton').click();
