@@ -6,7 +6,14 @@ const port = process.env.PORT || 8080;
 const url = "https://www.tipsport.cz/live";
 
 app.get('/', function(req, res) {
-    (async() => {
+    newPage(res);
+});
+
+app.listen(port, function() {
+    console.log('App listening on port ' + port)
+})
+
+async function newPage (res) {
         const browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
@@ -63,9 +70,4 @@ app.get('/', function(req, res) {
         });
 
         await browser.close();
-    })();
-});
-
-app.listen(port, function() {
-    console.log('App listening on port ' + port)
-})
+}
