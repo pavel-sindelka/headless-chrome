@@ -66,7 +66,7 @@ const newPage = async (res) => {
 
 app.get('/', function(req, res) {
     newPage(res);
-    newPage(res);
+    //newPage(res);
 });
 
 app.listen(port, function() {
