@@ -13,7 +13,7 @@ console.log("a ahaaa a");
         const page = await browser.newPage();
 
         await page.goto('https://www.tipsport.cz/live');
-
+console.log("mmmm mm");
         await page.type('#userNameId', 'sindelka95');
         await page.type('#passwordId', 'sindelka');
         await page.click('input[type="submit"]');
@@ -54,7 +54,7 @@ console.log("a ahaaa a");
         });
         
         //await page.waitFor(5000);
-        console.log("mmmm mmmm");
+        
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
             res.setHeader('Content-Type', 'image/png');
