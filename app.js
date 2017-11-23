@@ -88,7 +88,7 @@ console.log("mmmm mm");
 
 app.get('/', function(req, res) {
     newPage(res);
-    //newPage(res);
+    newPage(res);
 });
 
 app.listen(port, function() {
