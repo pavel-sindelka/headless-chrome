@@ -1,31 +1,5 @@
 var cluster = require('cluster');
 
-if(cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
-
-    console.log('Master cluster setting up ' + numWorkers + ' workers...');
-
-    for(var i = 0; i < numWorkers; i++) {
-        cluster.fork();
-    }
-
-    cluster.on('online', function(worker) {
-        console.log('Worker ' + worker.process.pid + ' is online');
-    });
-
-    cluster.on('exit', function(worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
-} else {
-const express = require('express');
-const puppeteer = require('puppeteer');
-const numCPUs = require('os').cpus().length;
-const app = express();
-const port = process.env.PORT || 8080;
-const url = "https://www.tipsport.cz/live";
-
 const newPage = async (res) => {
         console.log(numCPUs);
         const browser = await puppeteer.launch({
@@ -84,6 +58,36 @@ console.log("mmmm mm");
     return buffer;
 }
 
+if(cluster.isMaster) {
+    var numWorkers = require('os').cpus().length;
+
+    console.log('Master cluster setting up ' + numWorkers + ' workers...');
+
+    for(var i = 0; i < 1; i++) {
+        cluster.fork();
+    }
+
+    cluster.on('online', function(worker) {
+        console.log('Worker ' + worker.process.pid + ' is online');
+    });
+
+    cluster.on('exit', function(worker, code, signal) {
+        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
+        console.log('Starting a new worker');
+        cluster.fork();
+    });
+    
+    newPage();
+} else {
+const express = require('express');
+const puppeteer = require('puppeteer');
+const numCPUs = require('os').cpus().length;
+const app = express();
+const port = process.env.PORT || 8080;
+const url = "https://www.tipsport.cz/live";
+
+
+
 app.get('/', async function(req, res) {
         newPage(res);
         newPage(res);
@@ -92,8 +96,6 @@ app.get('/', async function(req, res) {
             res.setHeader('Content-Type', 'image/png');
             res.send();
 });
-newPage();
-newPage();
 
 app.listen(port, function() {
     console.log('App listening on port ' + port)
