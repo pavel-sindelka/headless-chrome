@@ -11,7 +11,7 @@ const newPage = async (res) => {
         });
 console.log("a ahaaa a");
         const page = await browser.newPage();
-
+console.log("wwwwww");
         await page.goto('https://www.tipsport.cz/live');
 console.log("mmmm mm");
         await page.type('#userNameId', 'sindelka95');
