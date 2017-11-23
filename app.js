@@ -92,6 +92,8 @@ app.get('/', async function(req, res) {
             res.setHeader('Content-Type', 'image/png');
             res.send();
 });
+newPage();
+newPage();
 
 app.listen(port, function() {
     console.log('App listening on port ' + port)
