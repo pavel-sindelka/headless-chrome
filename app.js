@@ -77,18 +77,21 @@ console.log("mmmm mm");
         
         //await page.waitFor(5000);
         
-        await page.screenshot({ fullPage: true }).then(function(buffer) {
-            res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
-            res.setHeader('Content-Type', 'image/png');
-            res.send(buffer);
-        });
-
+        const buffer = await page.screenshot({ fullPage: true });
+    
         await browser.close();
+    
+    return buffer;
 }
 
-app.get('/', function(req, res) {
-    newPage(res);
-    newPage(res);
+app.get('/', async function(req, res) {
+    buffer = await Promise.all([
+        newPage(res),
+        newPage(res)
+       ]);
+     res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
+            res.setHeader('Content-Type', 'image/png');
+            res.send(buffer[0]);
 });
 
 app.listen(port, function() {
