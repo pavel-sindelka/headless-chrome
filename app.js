@@ -1,11 +1,12 @@
 const express = require('express');
 const puppeteer = require('puppeteer');
-
+const numCPUs = require('os').cpus().length;
 const app = express();
 const port = process.env.PORT || 8080;
 const url = "https://www.tipsport.cz/live";
 
 const newPage = async (res) => {
+        console.log(numCPUs);
         const browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
@@ -66,7 +67,7 @@ console.log("mmmm mm");
 
 app.get('/', function(req, res) {
     newPage(res);
-    newPage(res);
+    //newPage(res);
 });
 
 app.listen(port, function() {
