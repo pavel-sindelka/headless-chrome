@@ -1,7 +1,8 @@
 var cluster = require('cluster');
+var numWorkers = require('os').cpus().length;
 
 const newPage = async (res) => {
-        console.log(numCPUs);
+        console.log(numWorkers);
         const browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
@@ -59,8 +60,6 @@ console.log("mmmm mm");
 }
 
 if(cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
-
     console.log('Master cluster setting up ' + numWorkers + ' workers...');
 
     for(var i = 0; i < 1; i++) {
