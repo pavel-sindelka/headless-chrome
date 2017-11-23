@@ -93,5 +93,6 @@ app.get('/', function(req, res) {
 
 app.listen(port, function() {
     console.log('App listening on port ' + port)
+    console.log('Process ' + process.pid + ' is listening to all incoming requests');
 })
 } 
