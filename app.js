@@ -85,13 +85,12 @@ console.log("mmmm mm");
 }
 
 app.get('/', async function(req, res) {
-    buffer = await Promise.all([
-        newPage(res),
-        newPage(res)
-       ]);
+        newPage(res);
+        newPage(res);
+
      res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
             res.setHeader('Content-Type', 'image/png');
-            res.send(buffer[0]);
+            res.send();
 });
 
 app.listen(port, function() {
