@@ -9,7 +9,7 @@ const newPage = async (res) => {
         const browser = await puppeteer.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
-
+console.log("a ahaaa a");
         const page = await browser.newPage();
 
         await page.goto('https://www.tipsport.cz/live');
