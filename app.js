@@ -54,7 +54,7 @@ console.log("a ahaaa a");
         });
         
         //await page.waitFor(5000);
-        
+        console.log("mmmm mmmm");
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
             res.setHeader('Content-Type', 'image/png');
