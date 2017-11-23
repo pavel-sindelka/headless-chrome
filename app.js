@@ -62,7 +62,7 @@ console.log("mmmm mm");
         const buffer = await page.screenshot({ fullPage: true });
     
         await browser.close();
-    
+    console.log("eeeeeeee");
     return buffer;
 }
 
@@ -83,6 +83,7 @@ if(cluster.isMaster) {
         cluster.fork();
     });
     
+    newPage();
     newPage();
 } else {
 
