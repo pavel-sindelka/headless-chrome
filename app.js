@@ -1,6 +1,13 @@
 var cluster = require('cluster');
 var numWorkers = require('os').cpus().length;
 
+const express = require('express');
+const puppeteer = require('puppeteer');
+const numCPUs = require('os').cpus().length;
+const app = express();
+const port = process.env.PORT || 8080;
+const url = "https://www.tipsport.cz/live";
+
 const newPage = async (res) => {
         console.log(numWorkers);
         const browser = await puppeteer.launch({
@@ -78,12 +85,7 @@ if(cluster.isMaster) {
     
     newPage();
 } else {
-const express = require('express');
-const puppeteer = require('puppeteer');
-const numCPUs = require('os').cpus().length;
-const app = express();
-const port = process.env.PORT || 8080;
-const url = "https://www.tipsport.cz/live";
+
 
 
 
