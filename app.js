@@ -21,6 +21,8 @@ const newPage = async (res) => {
         await page.waitForNavigation({ waitUntil: 'domcontentloaded' });
         await page.waitForSelector("#ss16");
         
+        const startTime = Date.now();
+        
         await page.evaluate(() => {
             var matchs = document.getElementById('ss16').getElementsByClassName('match');
             var index;
@@ -54,6 +56,8 @@ const newPage = async (res) => {
         });
         
         //await page.waitFor(5000);
+        
+        await page.type('#userNameId', Date.now() - startTime);
         
         await page.screenshot({ fullPage: true }).then(function(buffer) {
             res.setHeader('Content-Disposition', 'attachment;filename="' + url + '.png"');
